@@ -53,6 +53,13 @@ function onchange()
 {
 	placer.style.height = window.innerHeight * boxes.length + 'px';
 	var r = overlay.scrollTop / (overlay.scrollHeight - overlay.clientHeight);
+	var rr = localStorage.getItem('scroll');
+	if (rr && Math.abs(rr-r) > 0.2)
+	{	//jumped
+		r = rr; //use the old value
+		overlay.scrollTop = rr * (overlay.scrollHeight - overlay.clientHeight);
+	}
+	localStorage.setItem('scroll',r);
 	if (r>=1.0) r=0.999999;
 	var R = 1/(boxes.length-1);
 	var boxi = Math.floor(r/R);
