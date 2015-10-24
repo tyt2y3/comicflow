@@ -44,12 +44,16 @@ var overlay = document.getElementById('overlay');
 var placer = document.getElementById('placer');
 
 setTimeout(function(){
-	placer.style.height = window.innerHeight * boxes.length * 1 + 'px';
+	onresize();
 	onchange();
 },1);
 
 overlay.addEventListener('scroll', onchange, false);
-window.addEventListener('resize', onchange, false);
+window.addEventListener('resize', onresize, false);
+function onresize()
+{
+	placer.style.height = window.innerHeight * boxes.length + 'px';
+}
 function onchange()
 {
 	var r = overlay.scrollTop / (overlay.scrollHeight - overlay.clientHeight);
