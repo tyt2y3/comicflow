@@ -64,7 +64,7 @@ function onchange()
 	if (r>=1.0) r=0.999999;
 	var R = 1/(boxes.length-1);
 	var boxi = Math.floor(r/R);
-	var t = (r%R/R);
+	var t = (r-boxi*R)/R;
 	camera(interbox(boxes[boxi], boxes[boxi+1], t));
 }
 
