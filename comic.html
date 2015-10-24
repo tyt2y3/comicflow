@@ -42,7 +42,10 @@ var boxes = [[1401,1,1599,409],[900,1,1400,400],[810,2,1035,384],[1160,414,1599,
 var content = document.getElementById('content');
 var overlay = document.getElementById('overlay');
 var placer = document.getElementById('placer');
-placer.style.height = window.innerHeight * boxes.length * 1 + 'px';
+
+setTimeout(function(){
+	placer.style.height = window.innerHeight * boxes.length * 1 + 'px';
+},1);
 
 overlay.addEventListener('scroll', onchange, false);
 window.addEventListener('resize', onchange, false);
